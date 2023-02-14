@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Person.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PersonMantenimiento</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">Person.java</span></div><h1>Person.java</h1><pre class="source lang-java linenums">package org.example;
+
+import java.util.List;
+/*
+Class representing a person with a name, age and gender
+@author Jose Maria Fernandez Canton
+rama3
+ */
+public class Person {
+    private final String name;
+    private final int age;
+
+    private final String gender; //Male, Female
+
+<span class="fc" id="L15">    public Person(String name, int age, String gender){</span>
+<span class="pc bpc" id="L16" title="1 of 4 branches missed.">        if(name.equals(&quot;&quot;) || name == null){</span>
+<span class="fc" id="L17">            throw new RuntimeException(&quot;Error: nombre de persona no valido&quot;);</span>
+        }
+<span class="fc" id="L19">        this.name = name;</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if(age&lt;0){</span>
+<span class="fc" id="L21">            throw new RuntimeException(&quot;Error: nombre de persona no valido&quot;);</span>
+        }
+<span class="fc" id="L23">        this.age = age;</span>
+<span class="pc bpc" id="L24" title="1 of 4 branches missed.">        if(!gender.equals(&quot;Male&quot;) &amp;&amp; !gender.equals(&quot;Female&quot;)){</span>
+<span class="nc" id="L25">            throw new RuntimeException(&quot;Error: nombre de persona no valido&quot;);</span>
+        }
+<span class="fc" id="L27">        this.gender=gender;</span>
+<span class="fc" id="L28">    }</span>
+    public String name(){
+<span class="fc" id="L30">        return name;</span>
+    }
+    public int age(){
+<span class="fc" id="L33">        return age;</span>
+    }
+    public String gender(){
+<span class="fc" id="L36">        return gender;</span>
+    }
+
+    public static double[] averageAgePerGender(List&lt;Person&gt; persons){
+<span class="fc" id="L40">        double[] devolver = new double[2];</span>
+<span class="fc" id="L41">        int hombre=0;</span>
+<span class="fc" id="L42">        int mujer=0;</span>
+<span class="fc" id="L43">        int sumaHombres=0;</span>
+<span class="fc" id="L44">        int sumaMujeres =0;</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        for(Person p:persons){</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            if(p.gender.equals(&quot;Male&quot;)){</span>
+<span class="fc" id="L47">                sumaHombres += p.age;</span>
+<span class="fc" id="L48">                hombre++;</span>
+            }else{
+<span class="fc" id="L50">                sumaMujeres += p.age;</span>
+<span class="fc" id="L51">                mujer++;</span>
+            }
+<span class="fc" id="L53">        }</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if(hombre&gt;0){</span>
+<span class="fc" id="L55">            devolver[0] = sumaHombres/hombre;</span>
+        }else{
+<span class="fc" id="L57">            devolver[0] = 0;</span>
+        }
+
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if(mujer&gt;0){</span>
+<span class="fc" id="L61">            devolver[1] = sumaMujeres/mujer;</span>
+        }else{
+<span class="fc" id="L63">            devolver[1] = 0;</span>
+        }
+<span class="fc" id="L65">        return  devolver;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
