@@ -26,7 +26,7 @@ class PersonTest {
     }
     @Test
     public  void shouldThrowExceptionGender(){
-        assertThrows(RuntimeException.class,()->{new Person("Miriam",-1,"m");});
+        assertThrows(RuntimeException.class,()->{new Person("Miriam",10,"m");});
     }
     @Test
     public void testAverageAgePerGenderMightGiveRight() {

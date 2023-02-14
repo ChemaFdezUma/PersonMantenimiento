@@ -13,7 +13,7 @@ public class Person {
     private final String gender; //Male, Female
 
     public Person(String name, int age, String gender){
-        if(name.equals("") || name == null){
+        if(name.equals("")){
             throw new RuntimeException("Error: nombre de persona no valido");
         }
         this.name = name;
